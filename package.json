@@ -4,8 +4,7 @@
   "description": "Simple to use and universal cache layer for Sequelize",
   "main": "lib/index.js",
   "scripts": {
-    "test": "tap test/*.js -R spec --coverage --coverage-report=lcov",
-    "test:upload": "codecov"
+    "test": "tap test/*.js -R spec --coverage --coverage-report=lcov"
   },
   "keywords": [
     "sequelize",
@@ -25,9 +24,8 @@
     "sequelize": "^3.0.0 || ^4.0.0"
   },
   "devDependencies": {
-    "codecov": "^3.0.0",
     "sequelize": "^3.0.0 || ^4.0.0",
-    "sequelize-transparent-cache-variable": "^1.0.3",
+    "sequelize-transparent-cache-variable": "^1.2.0",
     "sqlite3": "^4.0.2",
     "tap": "^12.0.1"
   }
