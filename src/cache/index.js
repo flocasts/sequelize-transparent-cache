@@ -23,7 +23,17 @@ async function save (client, instance, customKey) {
     key.push(...getInstanceCacheKey(instance))
   }
 
-  return client.set(key, instanceToData(instance)).then(() => instance)
+  const data = instanceToData(instance);
+
+  // Ensure full data object.
+  const model = Object.getPrototypeOf(instance);
+  model.attributes.forEach((attribute) => {
+    if (typeof data[attribute] === 'undefined') {
+        data[attribute] = null;
+    }
+  });
+
+  return client.set(key, data).then(() => instance)
 }
 
 function saveAll (client, model, instances, customKey) {
